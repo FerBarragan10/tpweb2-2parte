@@ -20,6 +20,10 @@ class usuarioController extends securedController
       $Usuarios = $this->model->getUsuario();
       $this->view->mostrar($this->Titulo, $Usuarios);
   }
+  /*function isLogged(){
+      $Usuarios = $this->model->getUsuario();
+      return ?true:false;
+  }*/
 
   Function addUsuario(){
   $Usuario = $this->model->getUsuario();

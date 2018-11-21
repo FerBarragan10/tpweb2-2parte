@@ -26,6 +26,9 @@ class loginController
     header(LOGIN);
   }
 
+
+
+
   function verificarLogin(){
       $user= $_POST["id_usuario"];
       $password= $_POST["pass"];
@@ -34,7 +37,7 @@ class loginController
         if (password_verify($password,$dbUser[0]["clave"])){
           session_start();
             $_SESSION["User"] = $user;
-            header(HOMEADMIN);
+            header(HOME);
           }
           else{
             $this->View->mostrarLogin($this->titulo,"Contraseña incorrecta");

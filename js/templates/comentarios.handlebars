@@ -1,0 +1,29 @@
+<ul class="list-group">
+  {{#each Comentarios}}
+
+  <li class="list-group-item">
+    <s>{{comentario}} -----
+      <img src=imagen/{{imagen}}></s>
+    <s>{{id_usuario}}</s>
+
+    <button  class="js-delComentario" value={{id_comentario}}>BORRAR</button>
+
+  </li>
+  {{/each}}
+
+</ul>
+<form>
+  <div class="form-group">
+
+    <label for="exampleFormControlTextarea1">comentario</label>
+    <textarea class="form-control" id="comentario" rows="3"></textarea>
+
+
+    <div class="form-group">
+    <label for="exampleFormControlFile1">adjuntar imagen</label>
+    <input type="file" class="form-control-file" id="imagen">
+  </div>
+  </div>
+
+</form>
+  <button  id="js-addComentario" >crear</button>

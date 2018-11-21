@@ -1,15 +1,6 @@
 {include file="header.tpl"}
 {include file="navbar.tpl"}
 
-<button id="refresh" type="button" class="btn btn-default btn-xs pull-right" aria-label="Refresh">
-  <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-</button>
-<div class="container" id="equipos-container">
-
-</div>
-<div class="container" id="comentarios-container">
-
-</div>
   <div class="row">
     <div class="container col-lg-4 col-sm-12">
       <h1 class="titulo">{$Titulo1}</h1>
@@ -95,4 +86,5 @@
 
 
   </div>
+  <a class="btn btn-secondary" href="foro/{$comentario['id_jugador']}" role="button">ir a foro</a>
   {include file="footer.tpl"}

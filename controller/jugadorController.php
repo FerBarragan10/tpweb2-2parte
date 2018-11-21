@@ -34,11 +34,11 @@ class jugadorController
  $id_jugador=$_POST["idjugador"];
  if ( $id_jugador=="") {
   $this->jugadorModel->agregarJugador($id_equipo,$dorsal,$nombre_jugador,$fecha_nac,$altura);
-  header(HOMEADMIN);
+  header(HOME);
  }
  else{
    $this->jugadorModel->guardarEditarJugador($id_equipo,$nombre_jugador,$fecha_nac,$dorsal,$altura,$id_jugador);
-   header(HOMEADMIN);
+   header(HOME);
  }
 
 }
@@ -55,13 +55,13 @@ function addjugador(){
    }
    function borraJugador($param){
        $this->jugadorModel->borrarJugador($param[0]);
-       header(HOMEADMIN);
+       header(HOME);
    }
 
 
    function getJugadoresEquipo($equipo){
     $jugadores=$this->jugadorModel->getJugadoresEquipo($equipo);
-  
+
     return $jugadores;
     }
     function getJugadores(){

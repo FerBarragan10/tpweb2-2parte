@@ -2,12 +2,12 @@
 	RewriteEngine On
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -l
- 
+
 RewriteRule ^[css|img|js].*$ - [L]
 
-  
-RewriteRule ^api/(.*)$ api/routeAdvance.php?resource=$1 [QSA,L,END]
 
+RewriteRule ^api/(.*)$ api/routeAdvance.php?resource=$1 [QSA,L,END]
+RewriteRule ^(.*)$ routeAvanzado.php?action=$1 [QSA,L]
 
 
 </IfModule>

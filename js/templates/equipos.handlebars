@@ -1,12 +1,22 @@
 
+<table class="table table-bordered table-dark col-3">
+  <thead>
+  <tr>
+    <th scope='col'>nombre_equipo</th>
+    <th scope='col'>pos_tabla</th>
+    <th scope='col'>clasificacion_copa</th>
+  </tr>
+</thead>
+<tbody>
+    <tr>
+      {{#each Equipos}}
+        <tr><td>{{nombre_equipo}}</td>
+          <td>{{pos_tabla}}</td>
+          <td>{{clasificacion_copa}}</td>
+          <td><a href="borrar/{{id_equipo}}">BORRAR</a></td>
+        </tr>
+       {{/each}}
+    </tr>
 
- <h1>{{otra}}</h1>
- <ul class="list-group">
-  {{#each Equipos}}
-    {{#if completada}}
-      <li class="list-group-item"><s>{{titulo}} ----- {{descripcion}}</s><a href="borrar/{{id}}">BORRAR</a></li>
-    {{else}}
-      <li class="list-group-item">{{titulo}} ----- {{descripcion}}<a href="borrar/{{id}}">BORRAR</a> | <a href="completada/{{id}}">COMPLETADA| <a href="editar/{{id}}">EDITAR</a></li>
-    {{/if}}
-  {{/each}}
-</ul>
+  </tbody>
+</table>

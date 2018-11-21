@@ -28,3 +28,6 @@ body{
   visibility:hidden;
   display:none;
 }
+.js-delComentario{
+  color:red;
+}

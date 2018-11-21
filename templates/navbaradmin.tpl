@@ -19,12 +19,10 @@
       </ul>
     </div>
     <form class="form-inline">
-{if session_start() == "1"}
-  {if isset($smarty.session["User"])}
+
     <a class="btn btn-danger btn-block" href="logout" role="button">Log Out</a>
-  {else}
-    <a class="btn btn-success btn-block" href="login" role="button">Log In</a>
-  {/if}
-{/if}
+
+  
+
 </form>
   </nav>

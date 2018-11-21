@@ -4,6 +4,7 @@
 require_once "config/ConfigApi.php";
 require_once "controller/EquipoApiController.php";
 require_once "controller/JugadoresApiController.php";
+require_once "controller/ComentariosApiController.php";
 
 function parseURL($url)
 {

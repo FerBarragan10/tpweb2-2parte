@@ -22,24 +22,35 @@ class equipoController
     $this->tituloedit="editar jugador";
     $this->Titulo="HOME";
     }
-    function homeAdmin(){
-    $jugadores =$this->jugadorController->getJugadores();
-    $equipos = $this->equipoModel->getEquipos();
-    $this->equipoView->mostrarAdmin($this->Titulo,$this->titulo1,$this->titulo2,$jugadores,$equipos);
-  }
+
   function home(){
     $jugadores =$this->jugadorController->getJugadores();
     $equipos = $this->equipoModel->getEquipos();
-    $this->equipoView->mostrarC($this->Titulo,$this->titulo1,$this->titulo2,$jugadores,$equipos);
-  }
-  function filtro(){
+    if(!isset($_SESSION)){
+       session_start();
+      if(isset($_SESSION["User"])){
+        $temp="homeAdmin";
+        $this->equipoView->mostrar($this->Titulo,$this->titulo1,$this->titulo2,$jugadores,$equipos,$temp);
+      }
+      else {
+          $temp="homec";
+          $this->equipoView->mostrar($this->Titulo,$this->titulo1,$this->titulo2,$jugadores,$equipos,$temp);
+      }
+    }
+    else {
+        $temp="homec";
+        $this->equipoView->mostrar($this->Titulo,$this->titulo1,$this->titulo2,$jugadores,$equipos,$temp);
+    }
+}
+
+/*  function filtro(){
     $equipo = $_GET['filtro_equipo'];
     $jugadores =$this->jugadorController->getJugadoresEquipo($equipo);
     echo "<h1>" . $jugadores . "</h1>";
     $equipos = $this->equipoModel->getEquipos();
-    $this->equipoView->mostrarC($this->Titulo,$this->titulo1,$this->titulo2,$jugadores,$equipos);
+    $this->equipoView->mostrar($this->Titulo,$this->titulo1,$this->titulo2,$jugadores,$equipos);
 
-  }
+  }*/
  function editEquipo($param){
      $id_equipo = $param[0];
      $equipo = $this->equipoModel->getEquipo($id_equipo);
@@ -51,21 +62,19 @@ class equipoController
    $postabla = $_POST['pos_tabla'];
    $clasificacioncopa = $_POST['clasificacion_copa'];
    if ($id_equipo=="") {
-
      $this->equipoModel->addEquipo($id_equipo,$nombreequipo,$postabla,$clasificacioncopa);
-     header(HOMEADMIN);
+     header(HOME);
    }
    else {
-
      $this->equipoModel->guardarEquipo($id_equipo,$nombreequipo,$postabla,$clasificacioncopa);
-     header(HOMEADMIN);
+     header(HOME);
    }
  }
 
 
  function  removeEquipo($param){
      $this->equipoModel->removeEquipo($param[0]);//id_equipo
-     header(HOMEADMIN);
+     header(HOME);
  }
  function addEquipo(){
      $equipo=0;

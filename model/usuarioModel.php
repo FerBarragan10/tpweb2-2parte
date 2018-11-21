@@ -30,6 +30,11 @@ class usuarioModel{
     $sentencia->execute(array($user));
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
+  function asignarAdmin($id_usuario){
+    $sentencia = $this->db->prepare( "update  usuario SET esAdmin=1 where id_usuario=?");
+    $sentencia->execute(array($id_usuario));
+  }
+
 
 
 }
