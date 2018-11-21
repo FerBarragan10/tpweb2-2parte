@@ -26,9 +26,9 @@ class comentarioModel{
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
 
   }
-  function addComentario($comentario,$id_usuario,$id_jugador,$imagen){
-    $sentencia = $this->db->prepare("INSERT INTO comentarios(comentario,id_usuario,id_jugador,imagen) VALUES(?,?,?,?)");
-    $sentencia->execute(array($comentario,$id_usuario,$id_jugador,$imagen));
+  function addComentario($comentario,$id_usuario,$id_jugador,$imagen,$fecha){
+    $sentencia = $this->db->prepare("INSERT INTO comentarios(comentario,id_usuario,id_jugador,imagen,fecha) VALUES(?,?,?,?,?)");
+    $sentencia->execute(array($comentario,$id_usuario,$id_jugador,$imagen,$fecha));
   }
   function removeComentario($id_comentario){
     $sentencia = $this->db->prepare("delete from comentarios where id_comentario=?");

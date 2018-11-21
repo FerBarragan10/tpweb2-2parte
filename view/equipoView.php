@@ -7,12 +7,13 @@ class equipoView
   function __construct(){
     $this->Smarty = new Smarty();
   }
-  function mostrar($TITULO,$titulo1,$titulo2,$jugadores,$equipos,$temp){
+  function mostrar($TITULO,$titulo1,$titulo2,$jugadores,$equipos,$temp,$usuario){
   $this->Smarty->assign('Titulo',$TITULO);
   $this->Smarty->assign('Titulo1',$titulo1);
   $this->Smarty->assign('Titulo2',$titulo2);
   $this->Smarty->assign('jugadores',$jugadores);
   $this->Smarty->assign('equipos',$equipos);
+  $this->Smarty->assign('usuario',$usuario);
   $this->Smarty->display('templates/' . $temp . '.tpl');
   }
 

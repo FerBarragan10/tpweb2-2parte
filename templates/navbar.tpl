@@ -19,8 +19,8 @@
     </div>
 
     <form class="form-inline">
-
+     <h1 class="usuario" >Hola  visitante!</h1>
       <a class="btn btn-success btn-block" href="login" role="button">Log In</a>
-  
+
 </form>
   </nav>

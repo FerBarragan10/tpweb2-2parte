@@ -82,4 +82,10 @@
 
 
   </div>
+
+  <div class="container" id="comentarios-container">
+
+  </div>
+
+
   {include file="footer.tpl"}

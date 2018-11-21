@@ -20,7 +20,9 @@ class securedController
     session_destroy();
     header(LOGIN);
   }
-
+  function isAdmin(){
+   return $_SESSION['Admin'] == 1; 
+ }
 }
 
  ?>

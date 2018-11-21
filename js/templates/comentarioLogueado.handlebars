@@ -1,17 +1,15 @@
+<ul class="list-group">
+  {{#each Comentarios}}
 
-  <ul class="list-group">
-    {{#each Comentarios}}
+  <li class="list-group-item">
+    {{comentario}} -----
+      <img src=imagen/{{imagen}}>
+    {{id_usuario}}
 
-    <li class="list-group-item">
-      {{comentario}} -----
-        <img src=imagen/{{imagen}}>
-      {{id_usuario}}
 
-      <button  class="js-delComentario" value={{id_comentario}}>BORRAR</button>
 
-    </li>
-    {{/each}}
-
+  </li>
+  {{/each}}
   </ul>
   <div class="publicacion col-xl-12">
   <form>

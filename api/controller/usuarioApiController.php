@@ -43,6 +43,14 @@ class usuarioApiController extends Api{
    $objetoJson = $this->getJSONData();
     $r = $this->model->agregarUsuario($objetoJson->nombre, $objetoJson->clave, $objetoJson->esAdmin);
     return $this->json_response($r, 200);
+
+
+
+        $objetoJson = $this->getJSONData();
+        $r = $this->model->agregarJugador($objetoJson->id_equipo,$objetoJson->dorsal,$objetoJson->nombre_jugador,$objetoJson->fecha_nac,$objetoJson->altura);
+
+        return $this->json_response($r, 200);
+
   }
 }
  ?>

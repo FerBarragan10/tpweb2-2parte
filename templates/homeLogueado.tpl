@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-{include file="navbar.tpl"}
+{include file="navbarLogueado.tpl"}
 
   <div class="row">
     <div class="container col-lg-4 col-sm-12">
@@ -86,5 +86,10 @@
 
 
   </div>
-  <a class="btn btn-secondary" href="foro/{$comentario['id_jugador']}" role="button">ir a foro</a>
+  <div class="container" id="comentarios-container">
+
+  </div>
+
+
+
   {include file="footer.tpl"}

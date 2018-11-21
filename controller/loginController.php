@@ -3,7 +3,7 @@ require_once "./view/loginView.php";
 require_once "./model/usuarioModel.php";
 
 
-class loginController
+class loginController extends securedController
 {
   private $View;
   private $titulo;
@@ -36,7 +36,8 @@ class loginController
       if((isset($dbUser)&&count($dbUser)>0)){
         if (password_verify($password,$dbUser[0]["clave"])){
           session_start();
-            $_SESSION["User"] = $user;
+            $_SESSION["User"] = $dbUser[0]["nombre"];
+            $_SESSION["Admin"] = $dbUser[0]["esAdmin"];
             header(HOME);
           }
           else{
@@ -44,7 +45,7 @@ class loginController
           }
         }else{
         //No existe el usario
-       $this->View->mostrarLogin($this->titulo,"No existe el usario");
+       $this->View->mostrarLogin($this->titulo,"No existe el usuario");
       }
   }
 }

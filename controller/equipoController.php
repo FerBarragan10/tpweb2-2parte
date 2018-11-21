@@ -26,20 +26,26 @@ class equipoController
   function home(){
     $jugadores =$this->jugadorController->getJugadores();
     $equipos = $this->equipoModel->getEquipos();
-    if(!isset($_SESSION)){
-       session_start();
-      if(isset($_SESSION["User"])){
+session_start();
+    if(isset($_SESSION["User"])){
+
+
+      if($_SESSION["Admin"]){
         $temp="homeAdmin";
-        $this->equipoView->mostrar($this->Titulo,$this->titulo1,$this->titulo2,$jugadores,$equipos,$temp);
+        $usuario=$_SESSION["User"];
+
+        $this->equipoView->mostrar($this->Titulo,$this->titulo1,$this->titulo2,$jugadores,$equipos,$temp,$usuario);
       }
       else {
-          $temp="homec";
-          $this->equipoView->mostrar($this->Titulo,$this->titulo1,$this->titulo2,$jugadores,$equipos,$temp);
+          $temp="homeLogueado";
+          $usuario=$_SESSION["User"];
+          $this->equipoView->mostrar($this->Titulo,$this->titulo1,$this->titulo2,$jugadores,$equipos,$temp,$usuario);
       }
     }
     else {
         $temp="homec";
-        $this->equipoView->mostrar($this->Titulo,$this->titulo1,$this->titulo2,$jugadores,$equipos,$temp);
+        $usuario="visitante";
+        $this->equipoView->mostrar($this->Titulo,$this->titulo1,$this->titulo2,$jugadores,$equipos,$temp,$usuario);
     }
 }
 

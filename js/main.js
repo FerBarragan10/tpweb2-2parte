@@ -4,19 +4,24 @@
 let templateEquipos;
 let templateComentarios;
 
+/*
 fetch('js/templates/equipos.handlebars')
 .then(response => response.text())
 .then(template => {
     templateEquipos = Handlebars.compile(template); // compila y prepara el template
     getEquipos();
-});
+});*/
 fetch('js/templates/comentarios.handlebars')
 .then(response => response.text())
 .then(template => {
     templateComentarios = Handlebars.compile(template); // compila y prepara el template
     getComentarios();
-
-
+});
+fetch('js/templates/comentarioLogueado.handlebars')
+.then(response => response.text())
+.then(template => {
+    templateComentarios = Handlebars.compile(template); // compila y prepara el template
+    getComentarios();
 });
 
 
@@ -32,10 +37,11 @@ function getComentarios() {
     .then(response => response.json())
     .then(jsonComentarios=> {
         mostrarComentarios(jsonComentarios);
-        alert("ya cargados");
+
           document.querySelector("#js-addComentario").addEventListener("click",create);
     })
 }
+
 
 function mostrarComentarios(jsonComentarios) {
     let context = { // como el assign de smarty
@@ -46,6 +52,7 @@ function mostrarComentarios(jsonComentarios) {
     document.querySelector("#comentarios-container").innerHTML = html2;
     asignarEventoBorrarComentario();
 }
+
 function mostrarEquipos(jsonEquipos) {
     let context = { // como el assign de smarty
         Equipos: jsonEquipos,
@@ -55,7 +62,7 @@ function mostrarEquipos(jsonEquipos) {
     document.querySelector("#equipos-container").innerHTML = html;
 }
 function asignarEventoBorrarComentario(){
-  alert("primero este");
+
   var botones = document.querySelectorAll('.js-delComentario');
   botones.forEach(function(boton) {
     var z = boton.value;
@@ -78,15 +85,15 @@ function borrarComentario(z){
 }
 
 function create(){
-   alert("forra");
+
   let comentario=document.querySelector("#comentario").value;
-//  let usuario=document.querySelector("#usuario").value;
+  //let usuario=document.querySelector("#usuario").value;
   //let jugador=document.querySelector("#jugador").value;
   let imagen=document.querySelector("#imagen").value;
   let publicacion ={
     "comentario":comentario,
-    "id_usuario":"8",
-    "id_jugador":"12",
+    "id_usuario":"8",//aca tiene  q ir el usuario logueado.
+    "id_jugador":"12",//aca va el id de un jugador q exista, sino da error
     "imagen":imagen
   }
  alert(comentario);

@@ -7,9 +7,7 @@
 <div class="container" id="equipos-container">
 
 </div>
-<div class="container" id="comentarios-container">
 
-</div>
   <div class="row">
     <div class="container col-lg-4 col-sm-12">
       <h1 class="titulo">{$Titulo1}</h1>
@@ -95,4 +93,8 @@
 
 
   </div>
+  <div class="container" id="comentarios-container">
+
+  </div>
+
   {include file="footer.tpl"}
