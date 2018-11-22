@@ -29,7 +29,9 @@ class usuarioController extends securedController
   $Usuario = $this->model->getUsuario();
   $this->view->addUser($this->Titulo,$Usuario);
   }
-
+function getUser($user){
+  return $this->model->getUser($user);
+}
   function insertUsuario(){
 
     $nombre = $_POST["nombre"];

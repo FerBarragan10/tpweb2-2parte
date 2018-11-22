@@ -2,6 +2,7 @@
 require_once "./view/equipoView.php";
 require_once "./model/equipoModel.php";
 require_once "./controller/jugadorController.php";
+require_once "./controller/usuarioController.php";
 require_once "securedController.php";
 
 class equipoController
@@ -16,6 +17,7 @@ class equipoController
     {
     $this->equipoView=new equipoView();
     $this->equipoModel=new equipoModel();
+    $this->usuarioController=new usuarioController();
     $this->jugadorController=new jugadorController();
     $this->titulo1="Equipos de la Superliga  Argentina";
     $this->titulo2="Jugadores de la Superliga  Argentina";
@@ -32,13 +34,12 @@ session_start();
 
       if($_SESSION["Admin"]){
         $temp="homeAdmin";
-        $usuario=$_SESSION["User"];
-
+        $usuario =$this->usuarioController->getUser($_SESSION["User"]);
         $this->equipoView->mostrar($this->Titulo,$this->titulo1,$this->titulo2,$jugadores,$equipos,$temp,$usuario);
       }
       else {
           $temp="homeLogueado";
-          $usuario=$_SESSION["User"];
+          $usuario =$this->usuarioController->getUser($_SESSION["User"]);
           $this->equipoView->mostrar($this->Titulo,$this->titulo1,$this->titulo2,$jugadores,$equipos,$temp,$usuario);
       }
     }

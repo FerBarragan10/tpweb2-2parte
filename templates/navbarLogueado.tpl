@@ -19,7 +19,7 @@
       </ul>
     </div>
     <form class="form-inline">
-   <h1 class="usuario" >Hola  {$usuario}!</h1>
+   <h1 class="usuario" >Hola  {$usuario["0"]['nombre']}!</h1>
     <a class="btn btn-danger btn-block" href="logout" role="button">Log Out</a>
 
 

@@ -87,7 +87,7 @@ function borrarComentario(z){
 function create(){
 
   let comentario=document.querySelector("#comentario").value;
-  //let usuario=document.querySelector("#usuario").value;
+  let id_usuario=document.querySelector("#id_usuario").value;
   //let jugador=document.querySelector("#jugador").value;
   let imagen=document.querySelector("#imagen").value;
   let publicacion ={
